@@ -1,0 +1,27 @@
+
+.manyToManyTD {
+	white-space: pre-line;
+	word-wrap: break-word;
+}
+
+
+.manyToManyEdit {
+	cursor: pointer;
+	font-size: 12px;
+}
+
+
+
+.manyToManyContext {
+	margin-left : 3px;
+	cursor: pointer;
+	text-decoration: underline;
+	color : #11264f;
+	white-space:nowrap;
+}
+
+.manyToManyContextClose {
+	cursor: pointer;
+	font-size: 9px;
+	vertical-align: super;
+}
