@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+ 		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/cfcmms?characterEncoding=utf-8</property>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">052872</property>
+
+		<property name="hibernate.connection.autocommit">false</property>
+		
+		<property name="format_sql">true</property>
+		<property name="show_sql">true</property>
+
+		<property name="hibernate.hbm2ddl.auto"></property>
+		<!-- validate 加载hibernate时，验证创建数据库表结构 update 加载hibernate自动更新数据库结构 -->
+
+
+		<!-- 业务模块 -->
+ 		<mapping class="com.jfok.cfcmms.hibernate.business.Province" />
+ 		<mapping class="com.jfok.cfcmms.hibernate.business.City" />
+  	<mapping class="com.jfok.cfcmms.hibernate.business.Trade" />
+  	<mapping class="com.jfok.cfcmms.hibernate.business.Rate" />
+  	<mapping class="com.jfok.cfcmms.hibernate.business.Customer" />
+
+
+
+
+		<!-- 系统设置 -->
+
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._DepartmentScope" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._DepartmentClass" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._Department" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._NumberGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._NumberGroupDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._Position" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._PropertyType" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._Systeminfo" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._Systemset" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._SystemsetAddition" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.setting._User" />
+		
+		<!-- 日志 -->
+		<mapping class="com.jfok.cfcmms.hibernate.system.log._SystemLoginLog" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.log._SystemOperateLog" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.log._Systembackup" />
+
+		<!-- 权限设置 -->
+ 		<mapping class="com.jfok.cfcmms.hibernate.system.authority._AllDepartment" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._DataFilterRole" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._DataFilterRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._FieldHiddenRole" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._FieldHiddenRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._FieldReadonlyRole" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.authority._FieldReadonlyRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._FieldRole" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._FieldRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._ModuleApprove" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._ModuleApproveUser" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._Popedom" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._Role" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._RoleGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._RoleModuleAddition" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserAdditionDepartment" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserDataFilterRole" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserFieldHiddenRole" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.authority._UserFieldHiddenRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserFieldReadonlyRole" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.authority._UserFieldReadonlyRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserFieldRole" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserFieldRoleDetail" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserRole" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserRoleAddition" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.authority._UserRoleDetail" />
+
+		<!-- 模块设置 -->
+		<mapping class="com.jfok.cfcmms.hibernate.system.module._ModuleGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.module._Module" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.module._ModuleField" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.module._ModuleAdditionField" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.module._ModuleFieldConstraint" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.module._ModuleAdditionFunction" />
+
+		<!-- 	前台设置  -->
+
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._Menu" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._MenuGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._MenuModule" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleChart" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleDetailScheme" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleDetailSchemeField" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleExcelRecordAdd" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleExcelReport" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleFormScheme" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleFormSchemeGroup" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleFormSchemeGroupField" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleGridNavigate" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleGridScheme" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleGridSchemeGroup" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleGridSchemeGroupField" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._ModuleSubToolbar" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._PrintScheme" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._PrintSchemeGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.viewSetting._PrintSchemeGroupCell" />
+		
+		<!-- 报表设置 -->
+		<mapping class="com.jfok.cfcmms.hibernate.system.report._ReportGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.report._Report" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.report._ReportChart" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.report._ReportFieldGroup" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.report._ReportField" />
+
+
+
+		<!-- 附件模块 --> 
+		<mapping class="com.jfok.cfcmms.hibernate.system.attachment._Attachment" />
+ 		<mapping class="com.jfok.cfcmms.hibernate.system.attachment._Attachment_ImagePreview" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.attachment._Attachment_FileData" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.attachment._AttachmentType" />
+		<mapping class="com.jfok.cfcmms.hibernate.system.attachment._AttachmentOnField" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.attachment._AttachmentFileType" />
+		<mapping
+			class="com.jfok.cfcmms.hibernate.system.attachment._AttachmentReduceMode" />
+
+
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,43 @@
+需要在mysql中建立的函数
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `bl`( divisor DOUBLE , denominator DOUBLE ) RETURNS decimal(10,4)
+BEGIN
+	IF denominator IS NULL or divisor IS NULL THEN
+		RETURN NULL ;
+	END IF;
+    IF denominator = 0 THEN
+		RETURN 0.0000;
+	ELSE
+		RETURN ROUND(divisor / denominator,4);
+    END IF;
+END
+
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `getAttachmentNames`( 
+	moduleid varchar(10) ,
+	keyid varchar(50)) RETURNS varchar(4000) CHARSET gb2312
+BEGIN
+	DECLARE pid INT(11);
+	DECLARE ptitle VARCHAR(50);
+	DECLARE presult VARCHAR(4000) DEFAULT '';
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE c INT DEFAULT 0;
+	DECLARE cur CURSOR FOR
+		SELECT tf_attachmentId , tf_name 
+			FROM _Attachment
+			WHERE tf_moduleId = moduleid AND tf_moduleidvalue = keyid;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+	OPEN cur;
+    read_loop : LOOP
+		FETCH cur INTO pid , ptitle;
+        IF done THEN
+			LEAVE read_loop;
+		END IF;
+        SET c = c + 1;
+		SET presult = concat( presult ,c,'.', ptitle , '<br/>');
+	END LOOP;
+
+	CLOSE cur;
+
+	RETURN presult;
+END

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.jfok.cfcmms">
+		<!-- 将控制层排除在外，只扫描生成服务层的DAO层的类 -->
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+
+	<bean id="HibernateInterceptor" class="com.jfok.cfcmms.hibernate.HibernateInterceptor"></bean>
+
+
+	<!-- spring用于替换hibernateSessionFactory.java的sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+		<property name="entityInterceptor">
+			<ref bean="HibernateInterceptor" />
+		</property>
+	</bean>
+
+	<!-- 事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<!-- rememberMeCookie 记住我 2 星期 -->
+	<bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+	    <constructor-arg value="rememberMe"/>
+	    <property name="httpOnly" value = "true"/>
+	    <property name="maxAge" value="1209600"/>	    
+	</bean>
+
+	<!-- rememberMe 管理器 -->
+	<bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+	    <property name="cookie" ref="rememberMeCookie"/>
+	</bean>
+		
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="rememberMeManager" ref="rememberMeManager"></property>
+	</bean>
+
+	
+	<!-- 項目自定义的Realm -->
+	<bean id="shiroDbRealm" class="com.jfok.cfcmms.service.realm.ShiroDbRealm"></bean>
+
+	<!-- Shiro Filter   anon authc -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login.jsp" />
+		<property name="successUrl" value="/index.jsp" />
+		<property name="unauthorizedUrl" value="/system/error" />
+		<property name="filterChainDefinitions">
+			<value>
+				/login/** = anon
+				/css/** = anon
+				/fonts/** = anon
+				/images/** = anon
+				/** = user
+			</value>
+<!-- 				/validateCode.* = anon
+				/checkValidateCode.* = anon
+ -->			<!-- /** = user 表示可以记住用户密码，也可以登录 -->
+		</property>
+	</bean>
+	
+
+</beans>

@@ -1,0 +1,286 @@
+
+.gridcelltooltip {
+	margin: 10px 10px 10px -10px;
+}
+
+
+/* grid 中的模块附件的column的样式  */
+.attachmentColumnNumber {
+	cursor: pointer;
+	font-style: italic;
+	text-decoration: underline;
+	color : green;
+}
+
+.childCountColumn {
+	cursor: pointer;
+	font-style: italic;
+	text-decoration: underline;
+	color : green;
+}
+
+
+.alignright : {
+	float: right !important;
+	font-weight: bold;
+}
+
+.unitText : {
+	color: green !important;
+	text-decoration: underline;
+}
+
+.gridNameField{
+	cursor: pointer;
+	color: #11264f;
+	text-decoration: underline;
+}
+
+.childalignright {
+	float: right;
+	text-decoration: underline;
+}
+
+.gridNameField a:HOVER {
+	color: #33f;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.gridheadicon {
+	vertical-align: middle;
+}
+
+.treeitemimportant {
+	color: #a40;
+}
+/* grid 的选中的筛选值的设置  */
+.filtertext {
+	background-color: yellow;
+}
+
+.rightsrc img {
+	float: right;
+	height: 12px;
+	width: 12px;
+	cursor: pointer;
+}
+
+.gridheadicon img {
+	height: 11px;
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.approvethisgridheadicon {
+	vertical-align: middle;
+	color: blue;
+}
+
+.can_payout {
+	background-image: url("../images/button/can_payout.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.already_payout {
+	background-image: url("../images/button/auditing.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.not_payout {
+	background-image: url("../images/button/not_payout.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.already_auditing {
+	background-image: url("../images/button/auditing.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.not_auditing {
+	background-image: url("../images/button/no_auditing.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_ok {
+	background-image: url("../images/approve/approve_ok.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_cancel {
+	background-image: url("../images/approve/approve_cancel.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_0 {
+	background-image: url("../images/approve/0.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_1 {
+	background-image: url("../images/approve/1.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_2 {
+	background-image: url("../images/approve/2.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_3 {
+	background-image: url("../images/approve/3.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_4 {
+	background-image: url("../images/approve/4.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_5 {
+	background-image: url("../images/approve/5.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+.approve_6 {
+	background-image: url("../images/approve/6.png");
+	background-repeat: no-repeat;
+	background-position:center;
+}
+
+/* 导航Tree，如果有记录数的话，加在text后面，用下面的样式 */
+.navigateTreeItem {
+	color: blue;
+	font-size: 80%;
+}
+
+/* = disabled tree nodes
+----------------------------------------------- */
+.dvp-tree-node-disabled .x-grid-cell {
+	/* 	-moz-opacity: 0.5;
+	opacity: .5; */
+	color: gray;
+	background-color: #f6f5ec;
+	/* 	filter: alpha(opacity =           50);
+ */
+}
+
+/*  report result list grid 中的总计和小计*/
+.x-grid-cell-inner-row-numberer {
+	/* 防止查询结果列表中的row number 粗体，粗体的话太长，放不下  */
+	font-weight: normal;
+}
+
+.total .x-report-cell {
+	background-color: #6699CC;
+	font-weight: bold;
+	color: #00C;
+}
+
+.x-grid-row-selected .x-report-cell {
+	background-color: #dfe8f6 !important;
+}
+
+.x-grid-row-focused .x-report-cell {
+	background-color: #dfe8f6 !important;
+}
+
+.subtotal20 .x-report-cell {
+	background-color: #66ccff;
+	font-weight: bold;
+}
+
+.subtotal21 .x-report-cell {
+	background-color: #99ccff;
+	font-weight: bold;
+}
+
+.subtotal22 .x-report-cell {
+	background-color: #ccffff;
+	font-weight: bold;
+}
+
+.subtotal23 .x-report-cell {
+	background-color: #ccffff;
+	font-weight: bold;
+}
+
+.subtotal24 .x-report-cell {
+	background-color: #ccffff;
+	font-weight: bold;
+}
+
+/*  conditiongrid 各种条件背景颜色，正常，无作用，子查询  */
+.conditionunused .x-condition-cell {
+	background-color: #F3B1D9 !important;
+}
+
+.conditionsubquery .x-condition-cell {
+	background-color: #88dbe6 !important;
+}
+
+/* form 的 contain 中 table 类型的 th 的定义 */
+.fieldContainerTableth {
+	text-align: center;
+	font-weight: bold;
+	height: 30px;
+	font-size: 14px;
+}
+
+.x-grid-cell-inner breakword {
+	word-wrap: break-word !important;
+	word-break: normal;
+}
+
+.breakword {
+	word-wrap: break-word !important;
+	word-break: normal;
+}
+
+.errorMessage {
+	color: red;
+	font-size: 15px;
+}
+
+.ux-filtered-column {
+	font-style: normal !important;
+	font-weight: normal !important;
+	color: #ed1941;
+}
+
+.ux-gridfilter-text-icon {
+	background-image: url(../images/find.png) !important;
+}
+
+.datecolor {
+	color: #a40;
+}
+
+.numbercolor {
+	color: #00C;
+}
+
+.intcolor {
+	color: #00C;
+}
+
+.booleancolor {
+	color: #005831;
+}
+
+.hascondition {
+	color: #1d953f;
+}

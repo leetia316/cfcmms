@@ -1,0 +1,10 @@
+
+
+数据库字符集默认为 utf8
+表的也都是 utf8
+
+但是中文varchar 字段排序的时候要改成这样 ：  CONVERT (字段名 using gb2312)
+
+如果字段是gb2312,那么在生成view 的里面的，where 子句中 加入 like '中文' 就会报错。
+
+因此mysql 中所有的字符集都用utf8 ，只有在order by 的时候如果要按照中文的来的话，要加入convert 来转换。
